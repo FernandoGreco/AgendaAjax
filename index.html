@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript" src="ajax.js"></script>
+        <div id="Container">
+            <h1>Agenda de Contatos utilizando AJAX</h1>
+            <hr/>
+
+         
+            <h2>Pesquisar Contato:</h2>
+            <div id="Pesquisar">
+                Infome o nome: 
+                <input type="text" name="txtnome" id="txtnome"/> 
+                <input type="button" name="btnPesquisar" value="Pesquisar" onclick="getDados();"/>
+            </div>
+            <hr/>
+ 
+            <h2>Resultados da pesquisa:</h2>
+            <div id="Resultado"></div>
+            <hr>
+ 
+        </div>
+
+           <h2>Cadastro Contato:</h2>
+           
+                           <form action="contato.php" method="post">
+                  Nome:
+                  <input type="text" name="firstname">
+               
+                  Fone:
+                  <input type="text" name="fone">
+
+                  Celular:
+                  <input type="text" name="celular">
+
+                  E-mail:
+                  <input type="text" name="email">
+                  
+                  <input type="submit" value="Cadastrar">
+                </form> 
+            <hr/>
+
+             <h2>Todos Contatos:</h2>
+          
+                
+                <input type="text" name="txtnome" id="txtnome"/> 
+                <input type="button" name="btnPesquisar" value="Listar" onclick="listaDados();"/>
+                <div id="contatos"></div>
+            <hr/>
+ 
+    </body>
+</html>
