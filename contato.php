@@ -1,7 +1,5 @@
 <?php
 
-if(isset($_POST["busca"]))
-    echo "Aqui estou mais um dia";
 
     //Verifica se vem valor para cadastro
 if(isset($_POST["firstname"])){
@@ -25,21 +23,23 @@ if ($conexao->query($sql) === TRUE) {
 }
 
 
-
-
 // Verifica se existe a variável txtnome
 if (isset($_GET["txtnome"])) {
     $nome = $_GET["txtnome"];
     $conexao  = mysqli_connect("localhost", "root", "", "agenda");
 
-   // mysqli_select_db($base);
+    // mysqli_select_db($base);
     // Verifica se a variável está vazia
     if (empty($nome)) {
         $sql = "SELECT * FROM contato";
-    } else {
+    } elseif ($nome != 'listar')  {
         $nome .= "%";
         $sql =  mysqli_query($conexao, "SELECT * FROM contato WHERE nome like '$nome'");
-    }
+     } else {
+        $nome .= "%";
+        $sql =  mysqli_query($conexao, "SELECT * FROM contato");
+     }
+
     sleep(1);
     $result = $sql;
     $cont = mysqli_affected_rows($conexao);
